@@ -1,0 +1,136 @@
+html {
+  scroll-behavior: smooth;
+  line-height: initial;
+  transition: 0.9s ease-in-out;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 16px;
+  font-family: "indivisible", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: 'amithen-regular';
+  src: url('../fonts/amithen.ttf');
+}
+
+@font-face {
+  font-family: 'albertsans-black';
+  src: url('../fonts/albertsans-variable.ttf');
+}
+
+.indivisible-regular {
+  font-family: "indivisible", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.indivisible-medium {
+  font-family: "indivisible", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.indivisible-semibold {
+  font-family: "indivisible", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.indivisible-bold {
+  font-family: "indivisible", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.albert-sans-regular {
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fancy-header {
+  font-size: 24px;
+  font-family: 'amithen-regular', sans-serif;
+}
+
+.title {
+  font-size: 64px;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 900;
+}
+
+.small-paragraph {
+  font-size: 13px;
+}
+
+.big-paragraph {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+h3 {
+  font-size: 32px;
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+h4 {
+  font-size: 24px;
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+h5 {
+  font-size: 18px;
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+@media (max-width: 821px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .big-paragraph {
+    font-size: 18px;
+  }
+}

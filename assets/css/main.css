@@ -1,0 +1,85 @@
+.section-padding {
+  padding: 160px 180px;
+}
+
+.section-padding-top {
+  padding-top: 160px;
+}
+
+.section-padding-bottom {
+  padding-bottom: 160px;
+}
+
+.section-padding-x {
+  padding-left: 180px;
+  padding-right: 180px;
+}
+
+.section-padding-left {
+  padding-left: 180px;
+}
+
+.section-padding-right {
+  padding-right: 180px;
+}
+
+.section-padding-y {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.church-bg {
+  background: url("/images/bg-our-church-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 338px 60px 80px 60px;
+  border-radius: 12px;
+}
+
+.bg-blur {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(44px);
+  padding: 60px;
+  border-radius: 12px;
+}
+
+@media (max-width: 821px) {
+  .section-padding {
+    padding: 90px 20px;
+  }
+
+  .section-padding-top {
+    padding-top: 80px;
+  }
+
+  .section-padding-bottom {
+    padding-bottom: 80px;
+  }
+
+  .section-padding-x {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-padding-left {
+    padding-left: 20px;
+  }
+
+  .section-padding-right {
+    padding-right: 20px;
+  }
+
+  .section-padding-y {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .church-bg {
+    padding: 338px 20px 40px 20px;
+  }
+
+  .bg-blur {
+    padding: 20px;
+  }
+}
