@@ -4,7 +4,7 @@
     @submit.prevent="handleSubmit"
   >
     <div class="grid grid-cols-1 gap-6">
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <input
           type="text"
           id="name"
@@ -17,7 +17,7 @@
         </p>
       </div>
 
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <input
           type="tel"
           id="tel"
@@ -30,7 +30,7 @@
         </p>
       </div>
 
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <select v-model="form.rideTime" class="rccg-input w-full">
           <option value="" disabled selected>
             When do you need this ride?
@@ -43,7 +43,7 @@
         </p>
       </div>
 
-      <div class="w-full">
+      <div class="w-full" data-aos="fade-up" data-aos-duration="600">
         <input
           type="text"
           id="address"
@@ -57,7 +57,7 @@
         </p>
       </div>
 
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <select v-model="form.passengerInfo" class="rccg-input w-full">
           <option value="" disabled selected>Passenger information</option>
           <option value="1 Passenger">1 Passenger</option>
@@ -71,12 +71,16 @@
           {{ errors.passengerInfo }}
         </p>
       </div>
-      <div class="small-paragraph text-[#1E1F21] indivisible-semibold">
+      <div
+        class="small-paragraph text-[#1E1F21] indivisible-semibold"
+        data-aos="fade-up"
+        data-aos-duration="600"
+      >
         By clicking “Submit ride request” below, you accept our Terms and agree
         to our privacy policy.
       </div>
 
-      <div>
+      <div data-aos="fade-up" data-aos-duration="600">
         <button
           type="submit"
           class="btn-submit text-center w-full text-white"

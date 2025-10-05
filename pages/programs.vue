@@ -1,13 +1,17 @@
 <template>
   <div class="church-banner section-padding">
-    <div class="pt-[100px]">
+    <div class="pt-[100px]" data-aos="fade-left" data-aos-duration="600">
       <div class="fancy-header">Fellowship with us</div>
       <div class="w-full md:w-2/12">
         <div class="title">Our Programs</div>
       </div>
     </div>
 
-    <div class="flex justify-center mt-10">
+    <div
+      class="flex justify-center mt-10"
+      data-aos="fade-left"
+      data-aos-duration="800"
+    >
       <div class="bg-white rounded-[12px] p-[20px] md:p-[60px] w-full">
         <div class="big-paragraph">Coming soon…</div>
       </div>

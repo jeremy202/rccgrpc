@@ -1,6 +1,6 @@
 <template>
   <div class="church-banner section-padding">
-    <div class="pt-[100px]">
+    <div class="pt-[100px]" data-aos="fade-left" data-aos-duration="600">
       <div class="fancy-header">Giving</div>
       <div class="w-full md:w-3/12">
         <div class="title">Ways to Give</div>
@@ -9,7 +9,11 @@
 
     <div class="mt-10 md:mt-20">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-[12px] p-[20px] md:px-[40px] md:py-[56px]">
+        <div
+          class="bg-white rounded-[12px] p-[20px] md:px-[40px] md:py-[56px]"
+          data-aos="fade-right"
+          data-aos-duration="600"
+        >
           <h3>Interac</h3>
           <p class="mt-4">To give, send interac to:</p>
           <div class="big-paragraph mt-3 text-[#41B51E]">
@@ -18,7 +22,11 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="bg-white rounded-[12px] p-[20px] md:px-[40px] md:py-[56px]">
+        <div
+          class="bg-white rounded-[12px] p-[20px] md:px-[40px] md:py-[56px]"
+          data-aos="fade-left"
+          data-aos-duration="600"
+        >
           <h3>Online payment</h3>
           <p class="mt-4">Click below for online card payment:</p>
           <div class="big-paragraph mt-3 text-[#41B51E]">

@@ -5,7 +5,11 @@ import Transport from "~/components/Transport.vue";
 <template>
   <div class="section-padding">
     <div class="pt-[100px] block md:flex justify-between">
-      <div class="w-full md:w-4/12">
+      <div
+        class="w-full md:w-4/12"
+        data-aos="fade-right"
+        data-aos-duration="600"
+      >
         <div class="fancy-header">Transport</div>
         <div class="title">Ride to Church</div>
         <p class="mt-3">
@@ -14,7 +18,11 @@ import Transport from "~/components/Transport.vue";
           than 5pm before Saturday.
         </p>
       </div>
-      <div class="w-full md:w-6/12">
+      <div
+        class="w-full md:w-6/12"
+        data-aos="fade-left"
+        data-aos-duration="600"
+      >
         <Transport />
       </div>
     </div>

@@ -1,23 +1,31 @@
 <template>
   <section class="relative banner">
     <div class="relative z-10 flex h-full w-full flex-col justify-center">
-      <p class="text-white fancy-header mb-2">
+      <p
+        class="text-white fancy-header mb-2"
+        data-aos="fade-up"
+        data-aos-duration="600"
+      >
         ✨ 2025: Year of Higher Heights
       </p>
 
-      <div class="title text-white">
+      <div class="title text-white" data-aos="fade-up" data-aos-duration="800">
         A Place To Call <br />
         Home...
       </div>
 
-      <div class="flex items-center gap-2 mt-8 text-white">
+      <div
+        class="flex items-center gap-2 mt-8 text-white"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <span class="">
           <img src="/images/ic-address.svg" alt="" />
         </span>
         <p>10623 West Valley Road, SW, Calgary AB. T3B 5T2</p>
       </div>
 
-      <div class="flex gap-4 mt-10">
+      <div class="flex gap-4 mt-10" data-aos="fade-up" data-aos-duration="1200">
         <Button
           to="/church"
           label="Visit Church"
@@ -38,6 +46,8 @@
 
       <div
         class="md:absolute bottom-0 right-0 text-right text-white mt-10 md:mt-0"
+        data-aos="fade-up"
+        data-aos-duration="1400"
       >
         <div class="fancy-header">Upcoming...</div>
         <h5 class="mt-1">Mid week service</h5>
@@ -46,7 +56,7 @@
     </div>
   </section>
 
-  <section class="section-padding">
+  <section class="section-padding" data-aos="fade-up" data-aos-duration="800">
     <GodsPresence />
   </section>
 
@@ -119,15 +129,21 @@
     </div>
   </section> -->
 
-  <section class="section-padding-y bg-[#2F3233] section-padding-left pr-5">
+  <section
+    class="section-padding-y bg-[#2F3233] section-padding-left pr-5"
+    data-aos="fade-up"
+    data-aos-duration="800"
+  >
     <div>
-      <div class="mb-12">
+      <div class="mb-12" data-aos="fade-up" data-aos-duration="600">
         <img src="/images/ic-gap.svg" alt="" />
         <h1 class="text-white mt-8">A Place For All.</h1>
       </div>
 
       <div
         class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar"
+        data-aos="fade-left"
+        data-aos-duration="600"
       >
         <div
           v-for="(ministry, i) in ministries"

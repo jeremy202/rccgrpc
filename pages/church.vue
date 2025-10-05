@@ -1,15 +1,19 @@
 <template>
   <div class="church-banner section-padding">
-    <div class="pt-[100px]">
+    <div class="pt-[100px]" data-aos="fade-up" data-aos-duration="600">
       <div class="fancy-header">About Us</div>
       <div class="w-full md:w-2/12">
         <div class="title">Our Church</div>
       </div>
     </div>
 
-    <div class="church-bg mt-20">
+    <div class="church-bg mt-20" data-aos="fade-up" data-aos-duration="800">
       <div class="bg-blur">
-        <div class="big-paragraph leading-[1.3]">
+        <div
+          class="big-paragraph leading-[1.3]"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           According to the word of the Lord, 2025 is my year of Higher heights.
           My feet have become like the deer’s feet. My steps are guided, my path
           is established, and my actions are aligned to His divine purpose. I
@@ -25,11 +29,19 @@
     </div>
   </div>
 
-  <section class="section-padding bg-[#EFF2F7]">
+  <section
+    class="section-padding bg-[#EFF2F7]"
+    data-aos="fade-up"
+    data-aos-duration="600"
+  >
     <div class="flex justify-center">
-      <div class="w-full md:w-10/12">
+      <div class="w-full md:w-10/12" data-aos="fade-up" data-aos-duration="800">
         <div class="bg-white rounded-[12px] p-[20px] md:p-[60px]">
-          <p class="leading-[1.4]">
+          <p
+            class="leading-[1.4]"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             Restoration Power Center (RPC) is a multi-cultural parish of the
             Redeemed Christian Church of God (RCCG). RPC was officially
             inaugurated on September 16, 2018, with the divine mandate of

@@ -1,7 +1,11 @@
 <template>
-  <div class="section-padding-x section-padding-top bg-[#F3F3F3]">
+  <div
+    class="section-padding-x section-padding-top bg-[#F3F3F3]"
+    data-aos="fade-up"
+    data-aos-duration="600"
+  >
     <div class="block md:flex justify-normal md:justify-between">
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="600">
         <img src="/images/rccg-rpc-b.svg" alt="RPC Logo" />
         <div class="flex items-start mt-8">
           <img src="/images/ic-address-1.svg" alt="" />
@@ -12,7 +16,11 @@
           </p>
         </div>
       </div>
-      <div class="w-full md:w-1/2">
+      <div
+        class="w-full md:w-1/2"
+        data-aos="fade-right"
+        data-aos-duration="600"
+      >
         <div class="flex justify-normal md:justify-end mt-4 md:mt-0">
           <img src="/images/ic-phone.svg" alt="" />
           <h4 class="ml-1">
@@ -53,6 +61,8 @@
       <div class="block md:flex">
         <div
           class="w-full md:w-3/12 md:border-r border-[#C3C3C3] pt-6 md:py-10 md:pr-10"
+          data-aos="fade-right"
+          data-aos-duration="600"
         >
           <div class="flex items-center">
             <img src="/images/rccg-logo.svg" alt="" />
@@ -62,7 +72,11 @@
             </div>
           </div>
         </div>
-        <div class="w-full md:w-6/12 md:border-r border-[#C3C3C3] pt-6 md:p-10">
+        <div
+          class="w-full md:w-6/12 md:border-r border-[#C3C3C3] pt-6 md:p-10"
+          data-aos="fade-up"
+          data-aos-duration="600"
+        >
           <div class="flex gap-4 items-center">
             <nuxt-link to="https://www.instagram.com/rccgrpc/" target="_blank">
               <img src="/images/ic-ig.svg" alt="" />

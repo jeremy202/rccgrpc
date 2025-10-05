@@ -1,7 +1,9 @@
 <template>
   <div>
     <NuxtLayout class="layouts">
-      <NuxtPage />
+      <Transition name="fade" mode="out-in">
+        <NuxtPage />
+      </Transition>
     </NuxtLayout>
   </div>
 </template>
@@ -19,12 +21,12 @@ router.afterEach(() => {
 </script>
 
 <style>
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.2s ease-in-out;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
 }
-.page-enter-from,
-.page-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
