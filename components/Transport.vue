@@ -88,7 +88,7 @@ import { ref, watch } from "vue";
 const form = ref({
   name: "",
   phone: "",
-  rideTime: "", // this will now hold pickedDateTime
+  rideTime: "",
   address: "",
   passengerInfo: {
     adults: 1,

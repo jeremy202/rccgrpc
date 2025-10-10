@@ -21,7 +21,6 @@ $phone = htmlspecialchars(trim($data['phone'] ?? ''));
 $rideTime = htmlspecialchars(trim($data['rideTime'] ?? ''));
 $address = htmlspecialchars(trim($data['address'] ?? ''));
 
-// Passenger info as object
 $passengerInfo = $data['passengerInfo'] ?? null;
 
 if (!$name || !$phone || !$rideTime || !$address || !$passengerInfo) {
@@ -30,7 +29,6 @@ if (!$name || !$phone || !$rideTime || !$address || !$passengerInfo) {
   exit;
 }
 
-// Extract passenger details safely
 $adults = htmlspecialchars($passengerInfo['adults'] ?? 0);
 $children = htmlspecialchars($passengerInfo['children'] ?? 0);
 $infants = htmlspecialchars($passengerInfo['infants'] ?? 0);
@@ -39,7 +37,6 @@ $adminEmailList = [
   "transport@rccgrpc.ca",
 ];
 
-// Build passenger info HTML
 $passengerHTML = "
   <ul style='margin: 0; padding-left: 16px;'>
     <li><strong>Adults:</strong> {$adults}</li>
@@ -48,7 +45,6 @@ $passengerHTML = "
   </ul>
 ";
 
-// Message to Admin
 $messageToAdmin = "
 <html>
 <head><meta charset='UTF-8'></head>

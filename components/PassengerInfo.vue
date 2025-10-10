@@ -1,6 +1,5 @@
 <template>
   <div class="relative w-full">
-    <!-- Summary -->
     <div
       @click="toggleDropdown"
       class="flex justify-between items-center rccg-input cursor-pointer relative"
@@ -14,7 +13,6 @@
       <span class="text-gray-500">▼</span>
     </div>
 
-    <!-- Dropdown -->
     <div
       v-if="showDropdown"
       class="absolute w-full mt-2 bg-[#e7e7e7] rounded-lg shadow p-4 z-[9999] transition-all ease-out"
@@ -54,7 +52,6 @@
 <script setup>
 import { ref, computed, watch } from "vue";
 
-// Props to receive default values and binding
 const props = defineProps({
   modelValue: {
     type: Object,
@@ -77,7 +74,6 @@ const passengerTypes = {
   infants: { title: "Infants (under 2)" },
 };
 
-// Update parent whenever passengers change
 watch(passengers, (val) => emit("update:modelValue", val), { deep: true });
 
 const increment = (key) => passengers.value[key]++;

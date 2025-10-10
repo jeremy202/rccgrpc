@@ -10,13 +10,10 @@
       <span v-else>{{ displayValue }}</span>
       <i class="ri-calendar-line text-gray-400"></i>
     </button>
-
-    <!-- Date-Time Picker -->
     <div
       v-if="open"
       class="absolute z-20 bg-white shadow-lg rounded-2xl p-4 mt-2 w-[320px] border border-gray-100"
     >
-      <!-- Header -->
       <div class="flex items-center justify-between mb-2">
         <button @click="prevMonth" class="text-gray-500 hover:text-black">
           ‹
@@ -29,14 +26,11 @@
         </button>
       </div>
 
-      <!-- Days of week -->
       <div
         class="grid grid-cols-7 text-center text-xs font-semibold text-gray-400 mb-1"
       >
         <div v-for="day in weekDays" :key="day">{{ day }}</div>
       </div>
-
-      <!-- Dates -->
       <div class="grid grid-cols-7 text-center gap-1 mb-3">
         <div
           v-for="(day, index) in calendarDays"
@@ -52,8 +46,6 @@
           {{ day.date }}
         </div>
       </div>
-
-      <!-- Time Picker -->
       <div class="flex justify-center items-center gap-2 border-t pt-3">
         <input
           type="number"
@@ -72,7 +64,6 @@
         />
       </div>
 
-      <!-- Confirm -->
       <button
         @click="confirm"
         class="mt-4 w-full bg-blue-600 text-white rounded-lg py-2 font-medium hover:bg-blue-700"
@@ -122,28 +113,23 @@ const daysInMonth = (year: number, month: number) =>
   new Date(year, month + 1, 0).getDate();
 
 const firstDayOfMonth = (year: number, month: number) =>
-  new Date(year, month, 1).getDay() || 7; // ensure Monday = 1
+  new Date(year, month, 1).getDay() || 7;
 
 const calendarDays = computed(() => {
   const days: { date: number; type: string; fullDate: Date }[] = [];
   const totalDays = daysInMonth(currentYear.value, currentMonth.value);
   const startDay = firstDayOfMonth(currentYear.value, currentMonth.value);
   const prevMonthDays = daysInMonth(currentYear.value, currentMonth.value - 1);
-
-  // previous month's trailing days
   for (let i = startDay - 2; i >= 0; i--) {
     const date = prevMonthDays - i;
     const fullDate = new Date(currentYear.value, currentMonth.value - 1, date);
     days.push({ date, type: "prev", fullDate });
   }
 
-  // current month days
   for (let i = 1; i <= totalDays; i++) {
     const fullDate = new Date(currentYear.value, currentMonth.value, i);
     days.push({ date: i, type: "current", fullDate });
   }
-
-  // next month filler days
   const remaining = 42 - days.length;
   for (let i = 1; i <= remaining; i++) {
     const fullDate = new Date(currentYear.value, currentMonth.value + 1, i);
