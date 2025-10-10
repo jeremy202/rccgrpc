@@ -30,14 +30,8 @@
         </p>
       </div>
 
-      <div data-aos="fade-up" data-aos-duration="600">
-        <select v-model="form.rideTime" class="rccg-input w-full">
-          <option value="" disabled selected>
-            When do you need this ride?
-          </option>
-          <option value="Now">Now</option>
-          <option value="Later">Later</option>
-        </select>
+      <div data-aos="fade-up" data-aos-duration="600" class="relative z-10">
+        <DateTimePicker v-model="pickedDateTime" />
         <p v-if="errors.rideTime" class="text-red-500 small-paragraph mt-1">
           {{ errors.rideTime }}
         </p>
@@ -57,13 +51,8 @@
         </p>
       </div>
 
-      <div data-aos="fade-up" data-aos-duration="600">
-        <select v-model="form.passengerInfo" class="rccg-input w-full">
-          <option value="" disabled selected>Passenger information</option>
-          <option value="1 Passenger">1 Passenger</option>
-          <option value="2 Passengers">2 Passengers</option>
-          <option value="3+ Passengers">3+ Passengers</option>
-        </select>
+      <div class="relative z-1">
+        <PassengerInfo v-model="passengerInfo" />
         <p
           v-if="errors.passengerInfo"
           class="text-red-500 small-paragraph mt-1"
@@ -71,16 +60,12 @@
           {{ errors.passengerInfo }}
         </p>
       </div>
-      <div
-        class="small-paragraph text-[#1E1F21] indivisible-semibold"
-        data-aos="fade-up"
-        data-aos-duration="600"
-      >
+      <div class="small-paragraph text-[#1E1F21] indivisible-semibold">
         By clicking “Submit ride request” below, you accept our Terms and agree
         to our privacy policy.
       </div>
 
-      <div data-aos="fade-up" data-aos-duration="600">
+      <div>
         <button
           type="submit"
           class="btn-submit text-center w-full text-white"
@@ -98,19 +83,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 const form = ref({
   name: "",
   phone: "",
-  rideTime: "",
+  rideTime: "", // this will now hold pickedDateTime
   address: "",
-  passengerInfo: "",
+  passengerInfo: {
+    adults: 1,
+    children: 0,
+    infants: 0,
+  },
 });
+
+const passengerInfo = ref({
+  adults: 1,
+  children: 0,
+  infants: 0,
+});
+
+const pickedDateTime = ref("");
 
 const errors = ref<Record<string, string>>({});
 const isSubmitting = ref(false);
 const successMessage = ref("");
+
+watch(
+  passengerInfo,
+  (val) => {
+    form.value.passengerInfo = val;
+  },
+  { deep: true }
+);
+
+watch(pickedDateTime, (val) => {
+  form.value.rideTime = val;
+});
 
 const validate = () => {
   errors.value = {};
@@ -120,7 +129,13 @@ const validate = () => {
   if (!form.value.rideTime)
     errors.value.rideTime = "Select when you need the ride";
   if (!form.value.address.trim()) errors.value.address = "Address is required";
-  if (!form.value.passengerInfo)
+
+  const totalPassengers =
+    form.value.passengerInfo.adults +
+    form.value.passengerInfo.children +
+    form.value.passengerInfo.infants;
+
+  if (totalPassengers === 0)
     errors.value.passengerInfo = "Please provide passenger info";
 
   return Object.keys(errors.value).length === 0;
@@ -144,13 +159,17 @@ const handleSubmit = async () => {
     if (result.success) {
       successMessage.value =
         "Your ride request has been submitted successfully!";
+
       form.value = {
         name: "",
         phone: "",
         rideTime: "",
         address: "",
-        passengerInfo: "",
+        passengerInfo: { adults: 1, children: 0, infants: 0 },
       };
+
+      passengerInfo.value = { adults: 1, children: 0, infants: 0 };
+      pickedDateTime.value = "";
     } else {
       alert(result.message || "Something went wrong. Please try again.");
     }
@@ -163,30 +182,4 @@ const handleSubmit = async () => {
 };
 </script>
 
-<style scoped>
-.rccg-input {
-  background: #e7e7e7;
-  box-shadow: 0 1px 0 rgba(161, 161, 161, 1);
-  border-radius: 12px;
-  padding: 15px 20px;
-  width: 100%;
-}
-.rccg-input::placeholder {
-  color: #1e1f21;
-}
-.btn-submit {
-  background: linear-gradient(
-    85deg,
-    rgba(0, 175, 239, 1),
-    rgba(65, 181, 30, 1)
-  );
-  border-radius: 25px;
-  padding: 14px;
-  transition: all 0.3s ease;
-}
-.btn-submit:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-  backdrop-filter: blur(1px);
-}
-</style>
+<style scoped></style>
