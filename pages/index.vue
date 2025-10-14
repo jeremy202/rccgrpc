@@ -10,7 +10,7 @@
       </p>
 
       <div class="title text-white" data-aos="fade-up" data-aos-duration="800">
-        A Place To Call <br />
+        A Place To Call <br class="hidden md:block" />
         Home...
       </div>
 
