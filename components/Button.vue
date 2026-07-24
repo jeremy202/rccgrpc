@@ -10,34 +10,13 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  to: {
-    type: String,
-    default: "#",
-  },
-  label: {
-    type: String,
-    required: true,
-  },
-  bg: {
-    type: String,
-    default: "linear-gradient(to right, #22d3ee, #3b82f6)",
-  },
-  textColor: {
-    type: String,
-    default: "#ffffff",
-  },
-  border: {
-    type: String,
-    default: "none",
-  },
-  icon: {
-    type: Boolean,
-    default: false,
-  },
-  iconImage: {
-    type: String,
-    default: "",
-  },
+  to: { type: String, default: "#" },
+  label: { type: String, required: true },
+  bg: { type: String, default: "linear-gradient(to right, #22d3ee, #3b82f6)" },
+  textColor: { type: String, default: "#ffffff" },
+  border: { type: String, default: "none" },
+  icon: { type: Boolean, default: false },
+  iconImage: { type: String, default: "" },
 });
 
 const buttonStyle = computed(() => ({
@@ -52,24 +31,44 @@ const buttonStyle = computed(() => ({
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 14px 24px;
+  padding: 14px 28px;
   border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   font-family: "indivisible", sans-serif;
   font-weight: 500;
   font-style: normal;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.app-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.18);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.app-btn:hover::after {
+  left: 130%;
 }
 
 .app-btn:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-  backdrop-filter: blur(1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
 }
 
-.icon {
-  font-size: 1.1rem;
+.app-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 </style>

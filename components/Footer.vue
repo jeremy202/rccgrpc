@@ -34,13 +34,13 @@
               <div class="small-paragraph indivisible-medium">
                 <nuxt-link> Our Church </nuxt-link>
               </div>
-              <div class="mt-4">
+              <div class="mt-4 small-paragraph">
                 <nuxt-link to="/church"> About us </nuxt-link>
               </div>
-              <div class="mt-4">
+              <div class="mt-4 small-paragraph">
                 <nuxt-link to="/give"> Give </nuxt-link>
               </div>
-              <div class="mt-4">
+              <div class="mt-4 small-paragraph">
                 <nuxt-link to="/programs"> I’m new </nuxt-link>
               </div>
             </div>
@@ -48,7 +48,7 @@
               <div class="small-paragraph indivisible-medium">
                 <nuxt-link> Resources </nuxt-link>
               </div>
-              <div class="mt-4">
+              <div class="mt-4 small-paragraph">
                 <nuxt-link to="/request-ride"> Request ride? </nuxt-link>
               </div>
             </div>
@@ -68,7 +68,7 @@
             <img src="/images/rccg-logo.svg" alt="" />
             <div class="small-paragraph ml-2">
               © {{ new Date().getFullYear() }} The Redeemed Christian Church of
-              God • Restoration Power Centre.
+              God • Restoration Power Center.
             </div>
           </div>
         </div>

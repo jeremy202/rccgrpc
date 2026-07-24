@@ -40,7 +40,7 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: '/images/rccg-logo.svg' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/images/rccg-logo.svg' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/images/rccg-rpc-logo.svg' },
         { rel: 'canonical', href: 'https://rccgrpc.ca' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },

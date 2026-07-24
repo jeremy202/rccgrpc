@@ -2,96 +2,237 @@
   <div class="church-banner section-padding">
     <div class="pt-[100px]" data-aos="fade-up" data-aos-duration="600">
       <div class="fancy-header">About Us</div>
-      <div class="w-full md:w-2/12">
+      <div class="w-full md:w-5/12">
         <div class="title">Our Church</div>
-      </div>
-    </div>
-
-    <div class="church-bg mt-20" data-aos="fade-up" data-aos-duration="800">
-      <div class="bg-blur">
-        <div
-          class="big-paragraph leading-[1.3]"
-          data-aos="fade-left"
-          data-aos-duration="1000"
-        >
-          According to the word of the Lord, 2025 is my year of Higher heights.
-          My feet have become like the deer’s feet. My steps are guided, my path
-          is established, and my actions are aligned to His divine purpose. I
-          will succeed where others are failing. The hand of God will carry me
-          to the higher heights prepared for me and my family.
-          <br /><br />
-          Bigger me! Better me!! Higher me!!!
-
-          <br /><br />
-          In Jesus Name!
-        </div>
       </div>
     </div>
   </div>
 
+  <!-- Message from the Pastor -->
   <section
     class="section-padding bg-[#EFF2F7]"
     data-aos="fade-up"
     data-aos-duration="600"
   >
     <div class="flex justify-center">
-      <div class="w-full md:w-10/12" data-aos="fade-up" data-aos-duration="800">
-        <div class="bg-white rounded-[12px] p-[20px] md:p-[60px]">
-          <p
-            class="leading-[1.4]"
-            data-aos="fade-right"
-            data-aos-duration="1000"
+      <div class="w-full">
+        <img
+          src="/images/ic-gap.svg"
+          alt=""
+          data-aos="fade-up"
+          data-aos-duration="600"
+        />
+        <h1 class="mt-6" data-aos="fade-up" data-aos-duration="700">
+          Message from the Pastor
+        </h1>
+
+        <div
+          class="pastor-card mt-10"
+          data-aos="fade-up"
+          data-aos-duration="900"
+        >
+          <div class="pastor-card-accent"></div>
+          <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div
+              class="w-full md:w-5/12"
+              data-aos="fade-right"
+              data-aos-duration="900"
+            >
+              <div class="pastor-img-wrapper">
+                <img
+                  src="/images/img-pastor.jpg"
+                  class="w-full rounded-[20px] object-cover max-h-[500px]"
+                  alt="Pastor Lilian & Benson Akwue"
+                />
+              </div>
+              <h5 class="mt-5 text-center text-[#141415]">
+                Pst Lilian & Benson Akwue
+              </h5>
+              <p class="text-center text-[#797979] mt-1 small-paragraph">
+                Parish Pastors, RPC Calgary
+              </p>
+            </div>
+            <div
+              class="w-full md:w-7/12"
+              data-aos="fade-left"
+              data-aos-duration="900"
+            >
+              <div class="pastor-quote-mark">"</div>
+              <p class="leading-[1.9] text-[17px] relative z-10">
+                Welcome to Restoration Power Center.
+                <br /><br />
+                It is a joy and privilege to serve as the Parish Pastor and to
+                welcome you to what God is doing in this church family. At RPC,
+                we are committed to helping you grow in your relationship with
+                Christ, discover the gifts God has placed within you, and serve
+                with excellence as you walk in His purpose for your life.
+                <br /><br />
+                We believe that as we grow together, we build God's Kingdom by
+                demonstrating the love of Christ in our homes, our community,
+                and beyond. We are also passionate about raising disciples and
+                equipping the next generation of godly leaders who will impact
+                the world for Christ.
+                <br /><br />
+                Whether you are visiting our website for the first time or you
+                are already part of our church family, my prayer is that you
+                will encounter God's presence, find a place to belong, and grow
+                into all that He has called you to be.
+                <br /><br />
+                God bless you.
+              </p>
+              <div class="flex items-center gap-4 mt-8">
+                <div class="signature-line"></div>
+                <div>
+                  <div class="fancy-header" style="font-size: 22px">
+                    Pst Lilian & Benson
+                  </div>
+                  <h5 class="mt-0 text-[#797979] font-normal">Akwue</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Church History — Timeline -->
+  <section class="section-padding" data-aos="fade-up" data-aos-duration="600">
+    <div class="flex justify-center">
+      <div class="w-full">
+        <img
+          src="/images/ic-gap.svg"
+          alt=""
+          data-aos="fade-up"
+          data-aos-duration="600"
+        />
+        <h1 class="mt-6" data-aos="fade-up" data-aos-duration="700">
+          Church History
+        </h1>
+        <p
+          class="mt-3 text-[#797979] text-[17px]"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          The story God has been writing since 2017.
+        </p>
+
+        <div class="timeline mt-14">
+          <div
+            v-for="(milestone, i) in milestones"
+            :key="i"
+            class="timeline-item"
+            :data-aos="i % 2 === 0 ? 'fade-right' : 'fade-left'"
+            data-aos-duration="800"
+            :data-aos-delay="i * 60"
           >
-            Restoration Power Center (RPC) is a multi-cultural parish of the
-            Redeemed Christian Church of God (RCCG). RPC was officially
-            inaugurated on September 16, 2018, with the divine mandate of
-            ‘taking over the land for Jesus’.
-            <br /><br />
-            RPC’s divine mandate was received and executed with careful planning
-            over time. In July 2017, Pastor Seun Jonathan moved to Calgary with
-            his family and worked with the Provincial Pastor for 6 months to
-            plan and prepare for the birth of Restoration Power Center. On the
-            31st December, 2017, RPC started with a cross-over service into
-            2018. 44 people were in attendance, alongside the Jonathans, the
-            Olowokudejos and Mrs. Florence Eleko who were the foundation members
-            of RPC. The first church service was held on Sunday, January 7th
-            2018, at Crestmont Community Hall, Calgary.
-            <br /><br />
-            RPC continued fellowship on Sundays with a house fellowship on
-            Fridays in a home in Evanston until April 2018, when the church
-            moved to its present location at Victory Village; 10623 West Valley
-            Road, SW, Calgary. On Thursday, 1st November, 2018, the first
-            official midweek service of the church started with a film premiere
-            and prayer service. Pastor Seun Jonathan pastored the parish from
-            the inception until September 29, 2024, when he handed over to
-            Pastor Lilian Akwue, the current parish pastor, with the solid
-            support of her spouse, Benson Akwue.
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-date">{{ milestone.date }}</div>
+              <h5 class="mt-2 text-[#141415]">{{ milestone.title }}</h5>
+              <p class="mt-2 text-[#555] leading-[1.7] small-paragraph">
+                {{ milestone.desc }}
+              </p>
+            </div>
+          </div>
 
-            <br /><br />
-            The leadership of the church is made up of great men and women who
-            love the Lord. The parish leaders serve God dedicatedly and
-            selflessly in different capacities. The leadership is supported by a
-            strong workforce and volunteers whose relentless commitment to the
-            work of God and with the help of God, contribute to the successful
-            administration of the various departments and programs in the
-            parish.
+          <div class="timeline-end">
+            <div class="timeline-end-dot"></div>
+            <p class="text-[#41B51E] indivisible-bold small-paragraph mt-3">
+              The story continues...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <br /><br />
-            At RPC we love to see people thrive in their divine gifts and
-            abilities. We strategically position members to maximize their
-            hidden potential to build the kingdom of God with excellence and
-            passion, and to impact our community through the love of Christ. We
-            are committed to raising the next generation of leaders in the
-            kingdom and in RCCG worldwide.
+  <!-- Church Anniversary Gallery — marquee -->
+  <section
+    class="section-padding-y bg-[#2F3233] overflow-hidden"
+    data-aos="fade-up"
+    data-aos-duration="600"
+  >
+    <div class="section-padding-left pr-5 mb-12">
+      <img src="/images/ic-gap.svg" alt="" />
+      <h1 class="text-white mt-8">Church Anniversary.</h1>
+      <p class="text-[#C3C3C3] mt-2">
+        Celebrating God's faithfulness in our journey together.
+      </p>
+    </div>
 
-            <br /><br />
-            To further impact our community and spread the good news to the
-            unsaved, RPC in collaboration with POGEM produced a movie in 2021
-            titled “What’ Next. This is in alignment with the vision of the
-            Redeemed Christian Church of God - ‘to make heaven and take as many
-            people with us’. We are marching on as soldiers of the cross, and
-            our goal is to take over the land for Jesus!
-          </p>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <div
+          v-for="(photo, i) in anniversaryMarquee"
+          :key="i"
+          class="marquee-item"
+        >
+          <img :src="photo" :alt="`Church Anniversary`" class="marquee-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Leadership -->
+  <section
+    class="section-padding bg-[#EFF2F7]"
+    data-aos="fade-up"
+    data-aos-duration="600"
+  >
+    <img src="/images/ic-gap.svg" alt="" />
+    <h1 class="mt-6" data-aos="fade-up" data-aos-duration="700">
+      Our Leadership
+    </h1>
+    <p
+      class="mt-3 text-[#797979] text-[17px]"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      Meet the team leading our church family with wisdom and love.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <div class="leadership-card" data-aos="fade-up" data-aos-duration="800">
+        <div class="leadership-placeholder">
+          <p class="small-paragraph text-[#aaa]">Photo coming soon</p>
+        </div>
+        <h4 class="mt-6">Pastor Lilian Akwue</h4>
+        <div class="fancy-header mt-2" style="color: #41b51e">Lead Pastor</div>
+      </div>
+
+      <div class="leadership-card" data-aos="fade-up" data-aos-duration="950">
+        <div class="leadership-placeholder">
+          <p class="small-paragraph text-[#aaa]">Photo coming soon</p>
+        </div>
+        <h4 class="mt-6">Pastor Lawrence Omih</h4>
+        <div class="fancy-header mt-2" style="color: #00afef">
+          Assistant Pastor
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Life at RPC — marquee -->
+  <section
+    class="section-padding-y bg-[#2F3233] overflow-hidden"
+    data-aos="fade-up"
+    data-aos-duration="600"
+  >
+    <div class="section-padding-left pr-5 mb-12">
+      <img src="/images/ic-gap.svg" alt="" />
+      <h1 class="text-white mt-8">Life at RPC.</h1>
+      <p class="text-[#C3C3C3] mt-2">
+        Moments of fellowship, worship, and community together.
+      </p>
+    </div>
+
+    <div class="marquee-container">
+      <div class="marquee-track marquee-reverse">
+        <div v-for="(photo, i) in lifeMarquee" :key="i" class="marquee-item">
+          <img :src="photo" :alt="`Life at RPC`" class="marquee-img" />
         </div>
       </div>
     </div>
@@ -102,6 +243,95 @@
   </section>
 </template>
 
+<script setup lang="ts">
+const milestones = [
+  {
+    date: "July 2017",
+    title: "The Call to Calgary",
+    desc: "Pastor Seun Jonathan and his family arrive in Calgary, answering God's call with faith and obedience. Six months of prayer, planning, and preparation follow alongside the Provincial Pastor.",
+  },
+  {
+    date: "December 31, 2017",
+    title: "A Night of Hope",
+    desc: "44 people gather for a crossover service into the new year — the very first gathering of Restoration Power Center. The Jonathan family, the Olowokudejo family, and Mrs. Florence Eleko were among the faithful founders.",
+  },
+  {
+    date: "January 7, 2018",
+    title: "First Sunday Service",
+    desc: "The doors officially open at Crestmont Community Hall, Calgary. A small gathering of believers united by faith, purpose, and a desire to see lives transformed by the power of Jesus Christ.",
+  },
+  {
+    date: "April 2018",
+    title: "A New Home",
+    desc: "Growing in faith and number, RPC moves to its current home at Victory Village, 10623 West Valley Road, SW, Calgary — a place to call home.",
+  },
+  {
+    date: "September 16, 2018",
+    title: "Official RCCG Inauguration",
+    desc: 'Restoration Power Center is officially inaugurated as a multicultural parish of the Redeemed Christian Church of God (RCCG), fulfilling the divine mandate: "Taking Over the Land for Jesus."',
+  },
+  {
+    date: "November 1, 2018",
+    title: "Midweek Service Begins",
+    desc: "The first official midweek service launches with a film premiere and prayer service — combining creativity with ministry to engage people in fresh and meaningful ways.",
+  },
+  {
+    date: "2021",
+    title: '"What\'s Next" Movie',
+    desc: 'RPC partners with POGEM to produce the evangelistic movie "What\'s Next", using the power of storytelling to communicate the Gospel to a wider audience.',
+  },
+  {
+    date: "September 29, 2024",
+    title: "A New Chapter",
+    desc: "Pastor Lilian Akwue takes the mantle of Parish Pastor, with the steadfast support of her husband, Benson Akwue — continuing to lead with wisdom, compassion, and unwavering commitment.",
+  },
+];
+
+const anniversaryPhotos = [
+  "/images/church-anniversary/IMG_0223.JPG",
+  "/images/church-anniversary/IMG_0226.JPG",
+  "/images/church-anniversary/IMG_0227.JPG",
+  "/images/church-anniversary/IMG_0235.JPG",
+  "/images/church-anniversary/IMG_0246.JPG",
+  "/images/church-anniversary/IMG_0257.JPG",
+  "/images/church-anniversary/IMG_0290.JPG",
+  "/images/church-anniversary/IMG_0299.JPG",
+  "/images/church-anniversary/IMG_0306.JPG",
+  "/images/church-anniversary/IMG_0310.JPG",
+  "/images/church-anniversary/IMG_0318.JPG",
+  "/images/church-anniversary/IMG_0349.JPG",
+  "/images/church-anniversary/IMG_0350.JPG",
+  "/images/church-anniversary/IMG_0386.JPG",
+  "/images/church-anniversary/IMG_0403.JPG",
+  "/images/church-anniversary/IMG_0408.JPG",
+  "/images/church-anniversary/IMG_0421.JPG",
+];
+
+const lifePhotos = [
+  "/images/workers-appreciation/IMG_0116.JPG",
+  "/images/workers-appreciation/IMG_0129.JPG",
+  "/images/workers-appreciation/IMG_0133.JPG",
+  "/images/workers-appreciation/IMG_0135.JPG",
+  "/images/workers-appreciation/IMG_0145.JPG",
+  "/images/workers-appreciation/IMG_0146.JPG",
+  "/images/workers-appreciation/IMG_0162.JPG",
+  "/images/workers-appreciation/IMG_0206.JPG",
+  "/images/workers-appreciation/IMG_0230.JPG",
+  "/images/randoms/IMG_0005.JPG",
+  "/images/randoms/IMG_0011.JPG",
+  "/images/randoms/IMG_0016.JPG",
+  "/images/randoms/IMG_0024.JPG",
+  "/images/randoms/IMG_0044.JPG",
+  "/images/randoms/IMG_0050.JPG",
+  "/images/randoms/IMG_0051.JPG",
+  "/images/randoms/IMG_0052.JPG",
+  "/images/randoms/IMG_0064.JPG",
+];
+
+const anniversaryMarquee = [...anniversaryPhotos, ...anniversaryPhotos];
+const lifeMarquee = [...lifePhotos, ...lifePhotos];
+</script>
+
 <style scoped>
 .church-banner {
   background: linear-gradient(
@@ -109,5 +339,274 @@
     rgba(255, 252, 222, 1),
     rgba(255, 222, 222, 1)
   );
+}
+
+/* Pastor card */
+.pastor-card {
+  background: white;
+  border-radius: 24px;
+  padding: 52px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+}
+
+.pastor-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    74deg,
+    rgba(0, 175, 239, 1),
+    rgba(65, 181, 30, 1)
+  );
+}
+
+.pastor-img-wrapper {
+  position: relative;
+}
+.pastor-img-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 175, 239, 0.1),
+    rgba(65, 181, 30, 0.1)
+  );
+  border-radius: 28px;
+  z-index: 0;
+}
+.pastor-img-wrapper img {
+  position: relative;
+  z-index: 1;
+}
+
+.pastor-quote-mark {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(65, 181, 30, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.signature-line {
+  width: 44px;
+  height: 2.5px;
+  background: linear-gradient(
+    74deg,
+    rgba(0, 175, 239, 1),
+    rgba(65, 181, 30, 1)
+  );
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 175, 239, 0.4),
+    rgba(65, 181, 30, 0.4)
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid rgba(0, 175, 239, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timeline-dot-inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(
+    74deg,
+    rgba(0, 175, 239, 1),
+    rgba(65, 181, 30, 1)
+  );
+}
+
+.timeline-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 24px 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  background: linear-gradient(
+    74deg,
+    rgba(0, 175, 239, 1),
+    rgba(65, 181, 30, 1)
+  );
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.timeline-end {
+  position: relative;
+  padding-left: 0;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 4px;
+}
+
+.timeline-end-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(
+    74deg,
+    rgba(0, 175, 239, 1),
+    rgba(65, 181, 30, 1)
+  );
+  position: absolute;
+  left: -30px;
+  top: 8px;
+}
+
+/* Leadership cards */
+.leadership-card {
+  background: white;
+  border-radius: 20px;
+  padding: 36px;
+  border: 1px solid #eef0f4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leadership-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.09);
+}
+
+.leadership-placeholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #f0f4ff, #f0fff4);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #dde2ef;
+}
+
+/* Marquee */
+.marquee-container {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee-scroll 50s linear infinite;
+  will-change: transform;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  width: 280px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.marquee-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.marquee-item:hover .marquee-img {
+  transform: scale(1.06);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 821px) {
+  .pastor-card {
+    padding: 24px;
+    border-radius: 18px;
+  }
+  .pastor-quote-mark {
+    font-size: 100px;
+    top: 10px;
+    right: 16px;
+  }
+  .timeline {
+    padding-left: 28px;
+  }
 }
 </style>
