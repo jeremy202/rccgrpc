@@ -31,7 +31,7 @@
         <div class="flex justify-normal md:justify-end">
           <div class="grid grid-cols-2 mt-12 gap-20 text-[#1E1F21]">
             <div class="text-left md:text-right">
-              <div class="small-paragraph indivisible-medium">
+              <div class="small-paragraph indivisible-bold">
                 <nuxt-link> Our Church </nuxt-link>
               </div>
               <div class="mt-4 small-paragraph">
@@ -41,11 +41,11 @@
                 <nuxt-link to="/give"> Give </nuxt-link>
               </div>
               <div class="mt-4 small-paragraph">
-                <nuxt-link to="/programs"> I’m new </nuxt-link>
+                <nuxt-link to="/programs"> Programs </nuxt-link>
               </div>
             </div>
             <div class="text-left md:text-right">
-              <div class="small-paragraph indivisible-medium">
+              <div class="small-paragraph indivisible-bold">
                 <nuxt-link> Resources </nuxt-link>
               </div>
               <div class="mt-4 small-paragraph">
