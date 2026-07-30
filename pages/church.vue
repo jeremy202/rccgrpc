@@ -34,7 +34,7 @@
           <div class="pastor-card-accent"></div>
           <div class="flex flex-col md:flex-row gap-10 items-start">
             <div
-              class="w-full md:w-5/12"
+              class="w-full md:w-5/12 md:sticky md:top-[88px] md:self-start"
               data-aos="fade-right"
               data-aos-duration="900"
             >
@@ -347,7 +347,7 @@ const lifeMarquee = [...lifePhotos, ...lifePhotos];
   border-radius: 24px;
   padding: 52px;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
 }
 

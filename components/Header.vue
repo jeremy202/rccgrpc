@@ -111,8 +111,8 @@ const linkClasses = (link: { label: string; to: string }) => {
 
 <style scoped>
 .header-bg {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .active-dot {
