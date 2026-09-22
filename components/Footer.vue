@@ -21,11 +21,18 @@
         data-aos="fade-right"
         data-aos-duration="600"
       >
-        <div class="flex justify-normal md:justify-end mt-4 md:mt-0">
-          <img src="/images/ic-phone.svg" alt="" />
-          <h4 class="ml-1">
-            <a href="tel:+15878340780"> +1 (587) 834 0780 </a>
-          </h4>
+        <div>
+          <div class="flex justify-normal md:justify-end mt-4 md:mt-0">
+            <img src="/images/ic-phone.svg" alt="" />
+            <h4 class="ml-1">
+              <a href="tel:+15878340780"> +1 (587) 834 0780 </a>
+            </h4>
+          </div>
+          <div class="indivisible-bold flex justify-normal md:justify-end mt-4">
+            <nuxt-link to="mailto:admin@rccgrpc.ca">
+              admin@rccgrpc.ca</nuxt-link
+            >
+          </div>
         </div>
 
         <div class="flex justify-normal md:justify-end">
