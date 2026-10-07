@@ -6,33 +6,25 @@
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-12">
     <div class="space-y-6">
-      <div class="service-card" data-aos="fade-up" data-aos-duration="800">
-        <div class="service-time">
-          <span class="service-clock">10:00</span>
-          <span class="service-ampm">AM</span>
+      <div
+        v-for="(svc, i) in home.services"
+        :key="i"
+        class="service-card"
+        data-aos="fade-up"
+        :data-aos-duration="800 + i * 150"
+      >
+        <div class="service-time" :class="{ 'service-time-green': i % 2 === 1 }">
+          <span class="service-clock">{{ svc.time }}</span>
+          <span class="service-ampm">{{ svc.ampm }}</span>
         </div>
         <div class="flex-grow">
-          <p class="fancy-header" style="color: #00AFEF;">Worship Service</p>
+          <p class="fancy-header" :style="{ color: i % 2 === 1 ? '#41B51E' : '#00AFEF' }">{{ svc.name }}</p>
           <div class="big-paragraph indivisible-bold mt-1 text-[#1E1F21]">
-            Sundays (In-Person + Online)
+            {{ svc.when }}
           </div>
-          <p class="mt-2 text-[#797979] small-paragraph">
-            10623 West Valley Road, SW, Calgary AB. T3B 5T2
+          <p v-if="svc.where" class="mt-2 text-[#797979] small-paragraph">
+            {{ svc.where }}
           </p>
-        </div>
-      </div>
-
-      <div class="service-card" data-aos="fade-up" data-aos-duration="950">
-        <div class="service-time service-time-green">
-          <span class="service-clock">7:30</span>
-          <span class="service-ampm">PM</span>
-        </div>
-        <div class="flex-grow">
-          <p class="fancy-header" style="color: #41B51E;">Mid-week Service</p>
-          <div class="big-paragraph indivisible-bold mt-1 text-[#1E1F21]">
-            Thursdays (Online)
-          </div>
-          <p class="mt-2 text-[#797979] small-paragraph">On Zoom</p>
         </div>
       </div>
 
@@ -73,6 +65,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { home } from "~/utils/siteContent";
+</script>
 
 <style scoped>
 .service-card {

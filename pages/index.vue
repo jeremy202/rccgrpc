@@ -10,8 +10,8 @@
         data-aos="fade-up"
         data-aos-duration="500"
       >
-        <span class="year-badge">2025</span>
-        Year of Higher Heights
+        <span class="year-badge">{{ settings.theme_year }}</span>
+        {{ settings.theme_title }}
       </p>
 
       <div
@@ -31,7 +31,7 @@
         data-aos-duration="900"
       >
         <img src="/images/ic-address.svg" alt="" />
-        <p>10623 West Valley Road, SW, Calgary AB. T3B 5T2</p>
+        <p>{{ settings.address }}</p>
       </div>
 
       <div
@@ -61,15 +61,16 @@
         data-aos="fade-left"
         data-aos-duration="1000"
       >
-        <div class="glass-upcoming">
+        <NuxtLink to="/events" class="glass-upcoming block">
           <div class="fancy-header text-white/60" style="font-size: 16px">
-            Upcoming...
+            {{ home.upcoming_label }}
           </div>
-          <h5 class="mt-1 text-white">Mid week service</h5>
+          <h5 class="mt-1 text-white">{{ home.upcoming_title }}</h5>
           <p class="mt-2 text-white/60 small-paragraph">
-            Online on Zoom • Every Thursday
+            {{ home.upcoming_subtitle }}
           </p>
-        </div>
+          <p class="mt-3 small-paragraph text-white">See all events →</p>
+        </NuxtLink>
       </div>
     </div>
 
@@ -158,12 +159,9 @@
 </template>
 
 <script setup lang="ts">
-const stats = [
-  { value: "2018", label: "Established" },
-  { value: "10 AM", label: "Sunday Service" },
-  { value: "Calgary", label: "Alberta, Canada" },
-  { value: "RCCG", label: "Global Parish" },
-];
+import { settings, home } from "~/utils/siteContent";
+
+const stats = home.stats;
 
 const ministries = [
   {

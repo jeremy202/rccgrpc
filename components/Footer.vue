@@ -10,9 +10,9 @@
         <div class="flex items-start mt-8">
           <img src="/images/ic-address-1.svg" alt="" />
           <p class="ml-2 text-[#1E1F21]">
-            10623 West Valley Road, SW, Calgary AB. T3B 5T2
+            {{ settings.address }}
             <br />
-            <span class="indivisible-bold">Canada.</span>
+            <span>{{ settings.country }}</span>
           </p>
         </div>
       </div>
@@ -25,13 +25,11 @@
           <div class="flex justify-normal md:justify-end mt-4 md:mt-0">
             <img src="/images/ic-phone.svg" alt="" />
             <h4 class="ml-1">
-              <a href="tel:+15878340780"> +1 (587) 834 0780 </a>
+              <a :href="telHref(settings.phone)"> {{ settings.phone }} </a>
             </h4>
           </div>
           <div class="indivisible-bold flex justify-normal md:justify-end mt-4">
-            <nuxt-link to="mailto:admin@rccgrpc.ca">
-              admin@rccgrpc.ca</nuxt-link
-            >
+            <a :href="`mailto:${settings.email}`">{{ settings.email }}</a>
           </div>
         </div>
 
@@ -48,6 +46,9 @@
                 <nuxt-link to="/give"> Give </nuxt-link>
               </div>
               <div class="mt-4 small-paragraph">
+                <nuxt-link to="/events"> Events </nuxt-link>
+              </div>
+              <div class="mt-4 small-paragraph">
                 <nuxt-link to="/programs"> Programs </nuxt-link>
               </div>
             </div>
@@ -57,6 +58,9 @@
               </div>
               <div class="mt-4 small-paragraph">
                 <nuxt-link to="/request-ride"> Request ride? </nuxt-link>
+              </div>
+              <div class="mt-4 small-paragraph">
+                <nuxt-link to="/newcomers"> New here? </nuxt-link>
               </div>
             </div>
           </div>
@@ -72,7 +76,7 @@
           data-aos-duration="600"
         >
           <div class="flex items-center">
-            <img src="/images/rccg-logo.svg" alt="" />
+            <img src="/images/rpc-icon.svg" alt="RPC" class="h-[57px] w-auto shrink-0" />
             <div class="small-paragraph ml-2">
               © {{ new Date().getFullYear() }} The Redeemed Christian Church of
               God • Restoration Power Center.
@@ -85,13 +89,13 @@
           data-aos-duration="600"
         >
           <div class="flex gap-4 items-center">
-            <nuxt-link to="https://www.instagram.com/rccgrpc/" target="_blank">
+            <nuxt-link v-if="settings.instagram" :to="settings.instagram" target="_blank">
               <img src="/images/ic-ig.svg" alt="" />
             </nuxt-link>
-            <nuxt-link to="https://www.youtube.com/@rccgrpc" taget="_blank">
+            <nuxt-link v-if="settings.youtube" :to="settings.youtube" target="_blank">
               <img src="/images/ic-youtube.svg" alt="" />
             </nuxt-link>
-            <nuxt-link to="https://www.facebook.com/rccgrpc/" target="_blank">
+            <nuxt-link v-if="settings.facebook" :to="settings.facebook" target="_blank">
               <img src="/images/ic-facebook.svg" alt="" />
             </nuxt-link>
           </div>
@@ -120,6 +124,8 @@
 </template>
 
 <script setup>
+import { settings, telHref } from "~/utils/siteContent";
+
 const openNewTab = () => {
   const pageTitle = "RCCGRPC"; // Replace 'Your Page Name' with the actual name of your page
   const queryParams = new URLSearchParams({ pageName: pageTitle }).toString();

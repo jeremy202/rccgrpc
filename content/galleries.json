@@ -1,0 +1,97 @@
+{
+  "church_anniversary": {
+    "title": "Church Anniversary.",
+    "subtitle": "Celebrating God's faithfulness in our journey together.",
+    "photos": [
+      "/images/church-anniversary/IMG_0223.JPG",
+      "/images/church-anniversary/IMG_0226.JPG",
+      "/images/church-anniversary/IMG_0227.JPG",
+      "/images/church-anniversary/IMG_0235.JPG",
+      "/images/church-anniversary/IMG_0246.JPG",
+      "/images/church-anniversary/IMG_0257.JPG",
+      "/images/church-anniversary/IMG_0290.JPG",
+      "/images/church-anniversary/IMG_0299.JPG",
+      "/images/church-anniversary/IMG_0306.JPG",
+      "/images/church-anniversary/IMG_0310.JPG",
+      "/images/church-anniversary/IMG_0318.JPG",
+      "/images/church-anniversary/IMG_0349.JPG",
+      "/images/church-anniversary/IMG_0350.JPG",
+      "/images/church-anniversary/IMG_0386.JPG",
+      "/images/church-anniversary/IMG_0403.JPG",
+      "/images/church-anniversary/IMG_0408.JPG",
+      "/images/church-anniversary/IMG_0421.JPG"
+    ]
+  },
+  "life_at_rpc": {
+    "title": "Life at RPC.",
+    "subtitle": "Moments of fellowship, worship, and community together.",
+    "photos": [
+      "/images/workers-appreciation/IMG_0116.JPG",
+      "/images/workers-appreciation/IMG_0129.JPG",
+      "/images/workers-appreciation/IMG_0133.JPG",
+      "/images/workers-appreciation/IMG_0135.JPG",
+      "/images/workers-appreciation/IMG_0145.JPG",
+      "/images/workers-appreciation/IMG_0146.JPG",
+      "/images/workers-appreciation/IMG_0162.JPG",
+      "/images/workers-appreciation/IMG_0206.JPG",
+      "/images/workers-appreciation/IMG_0230.JPG",
+      "/images/randoms/IMG_0005.JPG",
+      "/images/randoms/IMG_0011.JPG",
+      "/images/randoms/IMG_0016.JPG",
+      "/images/randoms/IMG_0024.JPG",
+      "/images/randoms/IMG_0044.JPG",
+      "/images/randoms/IMG_0050.JPG",
+      "/images/randoms/IMG_0051.JPG",
+      "/images/randoms/IMG_0052.JPG",
+      "/images/randoms/IMG_0064.JPG"
+    ]
+  },
+  "marriage_seminar": {
+    "title": "Marriage Seminar.",
+    "subtitle": "Building strong, God-centred homes and families.",
+    "photos": [
+      "/images/marriage-seminar/MarriageSemilarFlyer.jpg",
+      "/images/marriage-seminar/0X9A0175.JPG",
+      "/images/marriage-seminar/0X9A0180.JPG",
+      "/images/marriage-seminar/0X9A0184.JPG",
+      "/images/marriage-seminar/0X9A0189.JPG",
+      "/images/marriage-seminar/0X9A0202.JPG",
+      "/images/marriage-seminar/0X9A0220.JPG",
+      "/images/marriage-seminar/IMG_0006.JPG",
+      "/images/marriage-seminar/IMG_0012.JPG",
+      "/images/marriage-seminar/IMG_0019.JPG",
+      "/images/marriage-seminar/IMG_0020.JPG",
+      "/images/marriage-seminar/IMG_0027.JPG",
+      "/images/marriage-seminar/IMG_0033.JPG"
+    ]
+  },
+  "church_picnic": {
+    "title": "Church Picnic.",
+    "subtitle": "Fun, fellowship, and community outside the walls of the church.",
+    "photos": [
+      "/images/pinic/IMG_0516.jpg",
+      "/images/pinic/IMG_0518.jpg",
+      "/images/pinic/IMG_05181.jpg",
+      "/images/pinic/IMG_0520.jpg",
+      "/images/pinic/IMG_0539.jpg",
+      "/images/pinic/IMG_0541.jpg",
+      "/images/pinic/IMG_0548.jpg",
+      "/images/pinic/IMG_0553.jpg",
+      "/images/pinic/IMG_0558.jpg",
+      "/images/pinic/IMG_3261.jpg",
+      "/images/pinic/IMG_3265.jpg",
+      "/images/pinic/IMG_3266.jpg",
+      "/images/pinic/IMG_3268.jpg",
+      "/images/pinic/IMG_3270.jpg",
+      "/images/pinic/IMG_3272.jpg",
+      "/images/pinic/IMG_3276.jpg",
+      "/images/pinic/IMG_3284.jpg",
+      "/images/pinic/IMG_3285.jpg",
+      "/images/pinic/IMG_3304.jpg",
+      "/images/pinic/IMG_3310.jpg",
+      "/images/pinic/IMG_3315.jpg",
+      "/images/pinic/IMG_3318.jpg",
+      "/images/pinic/IMG_3323.jpg"
+    ]
+  }
+}

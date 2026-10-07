@@ -11,27 +11,23 @@
       <div class="w-full md:w-5/12 relative" data-aos="fade-right" data-aos-duration="900">
         <div class="img-frame">
           <img
-            src="/images/img-pastor.jpg"
+            :src="pastors.photo"
             class="pastor-img"
-            alt="Pastor Lilian & Benson Akwue"
+            :alt="`${pastors.title_prefix} ${pastors.first_names} ${pastors.surname}`"
           />
         </div>
       </div>
 
       <div class="w-full md:w-7/12 py-4" data-aos="fade-left" data-aos-duration="900">
-        <p class="leading-[1.9] text-[#1E1F21] text-[17px]">
-          At RPC we love to see people thrive in their divine gifts and abilities.
-          We strategically position members to maximize their hidden potential to
-          build the kingdom of God with excellence and passion, and to impact our
-          community through the love of Christ. We are committed to raising the
-          next generation of leaders in the kingdom and in RCCG worldwide.
+        <p v-for="(para, i) in toParagraphs(home.welcome_message)" :key="i" class="leading-[1.9] text-[#1E1F21] text-[17px]" :class="{ 'mt-4': i > 0 }">
+          {{ para }}
         </p>
 
         <div class="signature-row mt-8">
           <div class="signature-line"></div>
           <div>
-            <div class="fancy-header" style="font-size: 22px;">Lilian & Benson</div>
-            <h5 class="mt-0 text-[#797979] font-normal">Akwue — Parish Pastors</h5>
+            <div class="fancy-header" style="font-size: 22px;">{{ pastors.first_names }}</div>
+            <h5 class="mt-0 text-[#797979] font-normal">{{ pastors.surname }} — {{ pastors.role }}</h5>
           </div>
         </div>
 
@@ -57,6 +53,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { home, pastors, toParagraphs } from "~/utils/siteContent";
+</script>
 
 <style scoped>
 .glad-card {

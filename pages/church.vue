@@ -5,6 +5,16 @@
       <div class="w-full md:w-5/12">
         <div class="title">Our Church</div>
       </div>
+      <div class="mt-8">
+        <Button
+          to="/newcomers"
+          label="New here? Connect with us"
+          bg="linear-gradient(74deg, rgba(0, 175, 239, 1), rgba(65, 181, 30, 1))"
+          textColor="#ffffff"
+          border="none"
+          iconImage="/images/ic-btn-arrow-w.svg"
+        />
+      </div>
     </div>
   </div>
 
@@ -40,16 +50,16 @@
             >
               <div class="pastor-img-wrapper">
                 <img
-                  src="/images/img-pastor.jpg"
+                  :src="pastors.photo"
                   class="w-full rounded-[20px] object-cover max-h-[500px]"
-                  alt="Pastor Lilian & Benson Akwue"
+                  :alt="`${pastors.title_prefix} ${pastors.first_names} ${pastors.surname}`"
                 />
               </div>
               <h5 class="mt-5 text-center text-[#141415]">
-                Pst Lilian & Benson Akwue
+                {{ pastors.title_prefix }} {{ pastors.first_names }} {{ pastors.surname }}
               </h5>
               <p class="text-center text-[#797979] mt-1 small-paragraph">
-                Parish Pastors, RPC Calgary
+                {{ pastors.role_long }}
               </p>
             </div>
             <div
@@ -58,35 +68,21 @@
               data-aos-duration="900"
             >
               <div class="pastor-quote-mark">"</div>
-              <p class="leading-[1.9] text-[17px] relative z-10">
-                Welcome to Restoration Power Center.
-                <br /><br />
-                It is a joy and privilege to serve as the Parish Pastor and to
-                welcome you to what God is doing in this church family. At RPC,
-                we are committed to helping you grow in your relationship with
-                Christ, discover the gifts God has placed within you, and serve
-                with excellence as you walk in His purpose for your life.
-                <br /><br />
-                We believe that as we grow together, we build God's Kingdom by
-                demonstrating the love of Christ in our homes, our community,
-                and beyond. We are also passionate about raising disciples and
-                equipping the next generation of godly leaders who will impact
-                the world for Christ.
-                <br /><br />
-                Whether you are visiting our website for the first time or you
-                are already part of our church family, my prayer is that you
-                will encounter God's presence, find a place to belong, and grow
-                into all that He has called you to be.
-                <br /><br />
-                God bless you.
+              <p
+                v-for="(para, i) in toParagraphs(pastors.message)"
+                :key="i"
+                class="leading-[1.9] text-[17px] relative z-10"
+                :class="{ 'mt-6': i > 0 }"
+              >
+                {{ para }}
               </p>
               <div class="flex items-center gap-4 mt-8">
                 <div class="signature-line"></div>
                 <div>
                   <div class="fancy-header" style="font-size: 22px">
-                    Pst Lilian & Benson
+                    {{ pastors.title_prefix }} {{ pastors.first_names }}
                   </div>
-                  <h5 class="mt-0 text-[#797979] font-normal">Akwue</h5>
+                  <h5 class="mt-0 text-[#797979] font-normal">{{ pastors.surname }}</h5>
                 </div>
               </div>
             </div>
@@ -157,9 +153,9 @@
   >
     <div class="section-padding-left pr-5 mb-12">
       <img src="/images/ic-gap.svg" alt="" />
-      <h1 class="text-white mt-8">Church Anniversary.</h1>
+      <h1 class="text-white mt-8">{{ galleries.church_anniversary.title }}</h1>
       <p class="text-[#C3C3C3] mt-2">
-        Celebrating God's faithfulness in our journey together.
+        {{ galleries.church_anniversary.subtitle }}
       </p>
     </div>
 
@@ -170,7 +166,7 @@
           :key="i"
           class="marquee-item"
         >
-          <img :src="photo" :alt="`Church Anniversary`" class="marquee-img" />
+          <img :src="photo" :alt="galleries.church_anniversary.title" class="marquee-img" />
         </div>
       </div>
     </div>
@@ -195,21 +191,25 @@
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-      <div class="leadership-card" data-aos="fade-up" data-aos-duration="800">
-        <div class="leadership-placeholder">
+      <div
+        v-for="(leader, i) in pastors.leadership"
+        :key="i"
+        class="leadership-card"
+        data-aos="fade-up"
+        :data-aos-duration="800 + i * 150"
+      >
+        <img
+          v-if="leader.photo"
+          :src="leader.photo"
+          :alt="leader.name"
+          class="leadership-photo"
+        />
+        <div v-else class="leadership-placeholder">
           <p class="small-paragraph text-[#aaa]">Photo coming soon</p>
         </div>
-        <h4 class="mt-6">Pastor Lilian Akwue</h4>
-        <div class="fancy-header mt-2" style="color: #41b51e">Lead Pastor</div>
-      </div>
-
-      <div class="leadership-card" data-aos="fade-up" data-aos-duration="950">
-        <div class="leadership-placeholder">
-          <p class="small-paragraph text-[#aaa]">Photo coming soon</p>
-        </div>
-        <h4 class="mt-6">Pastor Lawrence Omih</h4>
-        <div class="fancy-header mt-2" style="color: #00afef">
-          Assistant Pastor
+        <h4 class="mt-6">{{ leader.name }}</h4>
+        <div class="fancy-header mt-2" :style="{ color: i % 2 === 0 ? '#41b51e' : '#00afef' }">
+          {{ leader.role }}
         </div>
       </div>
     </div>
@@ -223,16 +223,16 @@
   >
     <div class="section-padding-left pr-5 mb-12">
       <img src="/images/ic-gap.svg" alt="" />
-      <h1 class="text-white mt-8">Life at RPC.</h1>
+      <h1 class="text-white mt-8">{{ galleries.life_at_rpc.title }}</h1>
       <p class="text-[#C3C3C3] mt-2">
-        Moments of fellowship, worship, and community together.
+        {{ galleries.life_at_rpc.subtitle }}
       </p>
     </div>
 
     <div class="marquee-container">
       <div class="marquee-track marquee-reverse">
         <div v-for="(photo, i) in lifeMarquee" :key="i" class="marquee-item">
-          <img :src="photo" :alt="`Life at RPC`" class="marquee-img" />
+          <img :src="photo" :alt="galleries.life_at_rpc.title" class="marquee-img" />
         </div>
       </div>
     </div>
@@ -244,92 +244,11 @@
 </template>
 
 <script setup lang="ts">
-const milestones = [
-  {
-    date: "July 2017",
-    title: "The Call to Calgary",
-    desc: "Pastor Seun Jonathan and his family arrive in Calgary, answering God's call with faith and obedience. Six months of prayer, planning, and preparation follow alongside the Provincial Pastor.",
-  },
-  {
-    date: "December 31, 2017",
-    title: "A Night of Hope",
-    desc: "44 people gather for a crossover service into the new year — the very first gathering of Restoration Power Center. The Jonathan family, the Olowokudejo family, and Mrs. Florence Eleko were among the faithful founders.",
-  },
-  {
-    date: "January 7, 2018",
-    title: "First Sunday Service",
-    desc: "The doors officially open at Crestmont Community Hall, Calgary. A small gathering of believers united by faith, purpose, and a desire to see lives transformed by the power of Jesus Christ.",
-  },
-  {
-    date: "April 2018",
-    title: "A New Home",
-    desc: "Growing in faith and number, RPC moves to its current home at Victory Village, 10623 West Valley Road, SW, Calgary — a place to call home.",
-  },
-  {
-    date: "September 16, 2018",
-    title: "Official RCCG Inauguration",
-    desc: 'Restoration Power Center is officially inaugurated as a multicultural parish of the Redeemed Christian Church of God (RCCG), fulfilling the divine mandate: "Taking Over the Land for Jesus."',
-  },
-  {
-    date: "November 1, 2018",
-    title: "Midweek Service Begins",
-    desc: "The first official midweek service launches with a film premiere and prayer service — combining creativity with ministry to engage people in fresh and meaningful ways.",
-  },
-  {
-    date: "2021",
-    title: '"What\'s Next" Movie',
-    desc: 'RPC partners with POGEM to produce the evangelistic movie "What\'s Next", using the power of storytelling to communicate the Gospel to a wider audience.',
-  },
-  {
-    date: "September 29, 2024",
-    title: "A New Chapter",
-    desc: "Pastor Lilian Akwue takes the mantle of Parish Pastor, with the steadfast support of her husband, Benson Akwue — continuing to lead with wisdom, compassion, and unwavering commitment.",
-  },
-];
+import { pastors, history, galleries, toParagraphs, loop } from "~/utils/siteContent";
 
-const anniversaryPhotos = [
-  "/images/church-anniversary/IMG_0223.JPG",
-  "/images/church-anniversary/IMG_0226.JPG",
-  "/images/church-anniversary/IMG_0227.JPG",
-  "/images/church-anniversary/IMG_0235.JPG",
-  "/images/church-anniversary/IMG_0246.JPG",
-  "/images/church-anniversary/IMG_0257.JPG",
-  "/images/church-anniversary/IMG_0290.JPG",
-  "/images/church-anniversary/IMG_0299.JPG",
-  "/images/church-anniversary/IMG_0306.JPG",
-  "/images/church-anniversary/IMG_0310.JPG",
-  "/images/church-anniversary/IMG_0318.JPG",
-  "/images/church-anniversary/IMG_0349.JPG",
-  "/images/church-anniversary/IMG_0350.JPG",
-  "/images/church-anniversary/IMG_0386.JPG",
-  "/images/church-anniversary/IMG_0403.JPG",
-  "/images/church-anniversary/IMG_0408.JPG",
-  "/images/church-anniversary/IMG_0421.JPG",
-];
-
-const lifePhotos = [
-  "/images/workers-appreciation/IMG_0116.JPG",
-  "/images/workers-appreciation/IMG_0129.JPG",
-  "/images/workers-appreciation/IMG_0133.JPG",
-  "/images/workers-appreciation/IMG_0135.JPG",
-  "/images/workers-appreciation/IMG_0145.JPG",
-  "/images/workers-appreciation/IMG_0146.JPG",
-  "/images/workers-appreciation/IMG_0162.JPG",
-  "/images/workers-appreciation/IMG_0206.JPG",
-  "/images/workers-appreciation/IMG_0230.JPG",
-  "/images/randoms/IMG_0005.JPG",
-  "/images/randoms/IMG_0011.JPG",
-  "/images/randoms/IMG_0016.JPG",
-  "/images/randoms/IMG_0024.JPG",
-  "/images/randoms/IMG_0044.JPG",
-  "/images/randoms/IMG_0050.JPG",
-  "/images/randoms/IMG_0051.JPG",
-  "/images/randoms/IMG_0052.JPG",
-  "/images/randoms/IMG_0064.JPG",
-];
-
-const anniversaryMarquee = [...anniversaryPhotos, ...anniversaryPhotos];
-const lifeMarquee = [...lifePhotos, ...lifePhotos];
+const milestones = history.milestones;
+const anniversaryMarquee = loop(galleries.church_anniversary.photos);
+const lifeMarquee = loop(galleries.life_at_rpc.photos);
 </script>
 
 <style scoped>
@@ -526,6 +445,14 @@ const lifeMarquee = [...lifePhotos, ...lifePhotos];
 .leadership-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.09);
+}
+
+.leadership-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 14px;
 }
 
 .leadership-placeholder {

@@ -1,3 +1,10 @@
+import { readdirSync } from 'node:fs'
+
+// Event pages are generated from the files the CMS writes to /content/events
+const eventSlugs = readdirSync(new URL('./content/events', import.meta.url))
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => f.replace(/\.json$/, ''))
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -40,7 +47,9 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: '/images/rccg-logo.svg' },
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'canonical', href: 'https://rccgrpc.ca' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
@@ -52,6 +61,11 @@ export default defineNuxtConfig({
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
+  },
+  nitro: {
+    prerender: {
+      routes: ['/events', '/newcomers', ...eventSlugs.map((slug) => `/events/${slug}`)],
+    },
   },
   css: [
     '@/assets/css/tailwind.css',

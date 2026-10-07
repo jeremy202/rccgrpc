@@ -1,0 +1,40 @@
+{
+  "upcoming_label": "Upcoming...",
+  "upcoming_title": "Mid week service",
+  "upcoming_subtitle": "Online on Zoom • Every Thursday",
+  "stats": [
+    {
+      "value": "2018",
+      "label": "Established"
+    },
+    {
+      "value": "10 AM",
+      "label": "Sunday Service"
+    },
+    {
+      "value": "Calgary",
+      "label": "Alberta, Canada"
+    },
+    {
+      "value": "RCCG",
+      "label": "Global Parish"
+    }
+  ],
+  "services": [
+    {
+      "time": "10:00",
+      "ampm": "AM",
+      "name": "Worship Service",
+      "when": "Sundays (In-Person + Online)",
+      "where": "10623 West Valley Road, SW, Calgary, AB T3B 5T2"
+    },
+    {
+      "time": "7:30",
+      "ampm": "PM",
+      "name": "Mid-week Service",
+      "when": "Thursdays (Online)",
+      "where": "On Zoom"
+    }
+  ],
+  "welcome_message": "At RPC we love to see people thrive in their divine gifts and abilities. We strategically position members to maximize their hidden potential to build the kingdom of God with excellence and passion, and to impact our community through the love of Christ. We are committed to raising the next generation of leaders in the kingdom and in RCCG worldwide."
+}

@@ -17,9 +17,9 @@
     <div class="section-padding-left pr-5 mb-12">
       <img src="/images/ic-gap.svg" alt="" />
       <!-- <span class="event-pill" style="background: #AB033E;">Event</span> -->
-      <h1 class="text-white mt-4">Marriage Seminar.</h1>
+      <h1 class="text-white mt-4">{{ galleries.marriage_seminar.title }}</h1>
       <p class="text-[#C3C3C3] mt-2">
-        Building strong, God-centred homes and families.
+        {{ galleries.marriage_seminar.subtitle }}
       </p>
     </div>
 
@@ -30,7 +30,7 @@
           :key="i"
           class="marquee-item"
         >
-          <img :src="photo" :alt="`Marriage Seminar`" class="marquee-img" />
+          <img :src="photo" :alt="galleries.marriage_seminar.title" class="marquee-img" />
         </div>
       </div>
     </div>
@@ -45,16 +45,16 @@
     <div class="section-padding-left pr-5 mb-12">
       <img src="/images/ic-gap.svg" alt="" />
       <!-- <span class="event-pill" style="background: #00AFEF;">Event</span> -->
-      <h1 class="mt-4">Church Picnic.</h1>
+      <h1 class="mt-4">{{ galleries.church_picnic.title }}</h1>
       <p class="text-[#797979] mt-2">
-        Fun, fellowship, and community outside the walls of the church.
+        {{ galleries.church_picnic.subtitle }}
       </p>
     </div>
 
     <div class="marquee-container">
       <div class="marquee-track marquee-reverse">
         <div v-for="(photo, i) in picnicMarquee" :key="i" class="marquee-item">
-          <img :src="photo" :alt="`Church Picnic`" class="marquee-img" />
+          <img :src="photo" :alt="galleries.church_picnic.title" class="marquee-img" />
         </div>
       </div>
     </div>
@@ -66,50 +66,10 @@
 </template>
 
 <script setup lang="ts">
-const marriagePhotos = [
-  "/images/marriage-seminar/MarriageSemilarFlyer.jpg",
-  "/images/marriage-seminar/0X9A0175.JPG",
-  "/images/marriage-seminar/0X9A0180.JPG",
-  "/images/marriage-seminar/0X9A0184.JPG",
-  "/images/marriage-seminar/0X9A0189.JPG",
-  "/images/marriage-seminar/0X9A0202.JPG",
-  "/images/marriage-seminar/0X9A0220.JPG",
-  "/images/marriage-seminar/IMG_0006.JPG",
-  "/images/marriage-seminar/IMG_0012.JPG",
-  "/images/marriage-seminar/IMG_0019.JPG",
-  "/images/marriage-seminar/IMG_0020.JPG",
-  "/images/marriage-seminar/IMG_0027.JPG",
-  "/images/marriage-seminar/IMG_0033.JPG",
-];
+import { galleries, loop } from "~/utils/siteContent";
 
-const picnicPhotos = [
-  "/images/pinic/IMG_0516.jpg",
-  "/images/pinic/IMG_0518.jpg",
-  "/images/pinic/IMG_05181.jpg",
-  "/images/pinic/IMG_0520.jpg",
-  "/images/pinic/IMG_0539.jpg",
-  "/images/pinic/IMG_0541.jpg",
-  "/images/pinic/IMG_0548.jpg",
-  "/images/pinic/IMG_0553.jpg",
-  "/images/pinic/IMG_0558.jpg",
-  "/images/pinic/IMG_3261.jpg",
-  "/images/pinic/IMG_3265.jpg",
-  "/images/pinic/IMG_3266.jpg",
-  "/images/pinic/IMG_3268.jpg",
-  "/images/pinic/IMG_3270.jpg",
-  "/images/pinic/IMG_3272.jpg",
-  "/images/pinic/IMG_3276.jpg",
-  "/images/pinic/IMG_3284.jpg",
-  "/images/pinic/IMG_3285.jpg",
-  "/images/pinic/IMG_3304.jpg",
-  "/images/pinic/IMG_3310.jpg",
-  "/images/pinic/IMG_3315.jpg",
-  "/images/pinic/IMG_3318.jpg",
-  "/images/pinic/IMG_3323.jpg",
-];
-
-const marriageMarquee = [...marriagePhotos, ...marriagePhotos];
-const picnicMarquee = [...picnicPhotos, ...picnicPhotos];
+const marriageMarquee = loop(galleries.marriage_seminar.photos);
+const picnicMarquee = loop(galleries.church_picnic.photos);
 </script>
 
 <style scoped>

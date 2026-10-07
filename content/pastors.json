@@ -1,0 +1,21 @@
+{
+  "photo": "/images/img-pastor.jpg",
+  "first_names": "Lilian & Benson",
+  "surname": "Akwue",
+  "title_prefix": "Pst",
+  "role": "Parish Pastors",
+  "role_long": "Parish Pastors, RPC Calgary",
+  "message": "Welcome to Restoration Power Center.\n\nIt is a joy and privilege to serve as the Parish Pastor and to welcome you to what God is doing in this church family. At RPC, we are committed to helping you grow in your relationship with Christ, discover the gifts God has placed within you, and serve with excellence as you walk in His purpose for your life.\n\nWe believe that as we grow together, we build God's Kingdom by demonstrating the love of Christ in our homes, our community, and beyond. We are also passionate about raising disciples and equipping the next generation of godly leaders who will impact the world for Christ.\n\nWhether you are visiting our website for the first time or you are already part of our church family, my prayer is that you will encounter God's presence, find a place to belong, and grow into all that He has called you to be.\n\nGod bless you.",
+  "leadership": [
+    {
+      "name": "Pastor Lilian Akwue",
+      "role": "Lead Pastor",
+      "photo": ""
+    },
+    {
+      "name": "Pastor Lawrence Omih",
+      "role": "Assistant Pastor",
+      "photo": ""
+    }
+  ]
+}

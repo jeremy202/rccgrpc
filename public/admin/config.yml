@@ -1,0 +1,182 @@
+# Decap CMS configuration for rccgrpc.ca
+# Docs: https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: github
+  repo: jeremy202/rccgrpc
+  branch: main
+  base_url: https://rccgrpc.ca          # login helper lives on the church site (cPanel)
+  auth_endpoint: admin/auth.php
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload “{{path}}”"
+    deleteMedia: "Delete “{{path}}”"
+
+# Lets developers edit locally with `npx decap-server` (only works on localhost)
+local_backend: true
+
+# Hide the raw side-by-side preview; editors can use “View Live” instead
+show_preview_links: true
+
+site_url: https://rccgrpc.ca
+display_url: https://rccgrpc.ca
+logo_url: /images/rpc-icon.svg
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  # ───────────────────────────── EVENTS ─────────────────────────────
+  - name: events
+    label: Events
+    label_singular: Event
+    description: >
+      Events shown on the Events page. Add a new event with the “New Event” button.
+      Changes go live on the website about 2–3 minutes after you click Publish.
+    folder: content/events
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{date}}"
+    sortable_fields: [date, title]
+    editor:
+      preview: false
+    media_folder: /public/images/events
+    public_folder: /images/events
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Short description, name: subtitle, widget: string, required: false }
+      - { label: Flyer / picture, name: image, widget: image, required: false,
+          hint: "Landscape pictures look best. If left empty, a worship photo is used." }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD",
+          date_format: "MMM D, YYYY", time_format: false,
+          hint: "For a weekly event, pick the first date it happens." }
+      - { label: Start time, name: start_time, widget: datetime, format: "HH:mm",
+          date_format: false, time_format: "h:mm A" }
+      - { label: End time, name: end_time, widget: datetime, format: "HH:mm",
+          date_format: false, time_format: "h:mm A" }
+      - label: Repeats
+        name: repeat
+        widget: select
+        default: none
+        options:
+          - { label: "Does not repeat", value: none }
+          - { label: "Every week", value: weekly }
+      - { label: Stop repeating after, name: until, widget: datetime, required: false,
+          format: "YYYY-MM-DD", date_format: "MMM D, YYYY", time_format: false,
+          hint: "Only for weekly events. Leave empty to repeat forever." }
+      - { label: Location, name: location, widget: string, default: "10623 West Valley Road, SW, Calgary, AB T3B 5T2, Canada" }
+      - { label: Location link, name: location_url, widget: string, required: false,
+          hint: "A Google Maps or Zoom link." }
+      - { label: Full description, name: description, widget: text,
+          hint: "Leave an empty line between paragraphs." }
+      - { label: Hide from website, name: hidden, widget: boolean, default: false, required: false }
+
+  # ─────────────────────────── SITE CONTENT ───────────────────────────
+  - name: site
+    label: Site content
+    description: Text and pictures used across the website.
+    editor:
+      preview: false
+    files:
+      - name: settings
+        label: Theme of the year & contact details
+        file: content/settings.json
+        fields:
+          - { label: Theme year, name: theme_year, widget: string, hint: "e.g. 2027" }
+          - { label: Theme of the year, name: theme_title, widget: string, hint: "e.g. Year of New Beginnings" }
+          - { label: Address, name: address, widget: string }
+          - { label: Country, name: country, widget: string }
+          - { label: Google Maps link, name: maps_url, widget: string, required: false }
+          - { label: Phone number, name: phone, widget: string }
+          - { label: Email address, name: email, widget: string }
+          - { label: Instagram link, name: instagram, widget: string, required: false }
+          - { label: YouTube link, name: youtube, widget: string, required: false }
+          - { label: Facebook link, name: facebook, widget: string, required: false }
+
+      - name: home
+        label: Home page
+        file: content/home.json
+        fields:
+          - label: “Upcoming” box (bottom right of the banner)
+            name: upcoming_label
+            widget: string
+          - { label: Upcoming – title, name: upcoming_title, widget: string }
+          - { label: Upcoming – details, name: upcoming_subtitle, widget: string }
+          - label: Highlights strip
+            name: stats
+            widget: list
+            summary: "{{value}} – {{label}}"
+            fields:
+              - { label: Big text, name: value, widget: string }
+              - { label: Small text, name: label, widget: string }
+          - label: Service times (“Join Us In God's Presence”)
+            name: services
+            widget: list
+            summary: "{{name}} – {{time}} {{ampm}}"
+            fields:
+              - { label: Time, name: time, widget: string, hint: "e.g. 10:00" }
+              - { label: AM / PM, name: ampm, widget: select, options: [AM, PM] }
+              - { label: Service name, name: name, widget: string }
+              - { label: When, name: when, widget: string, hint: "e.g. Sundays (In-Person + Online)" }
+              - { label: Where, name: where, widget: string, required: false }
+          - { label: Welcome message (“We're Glad To Have You”), name: welcome_message, widget: text }
+
+      - name: pastors
+        label: Pastors & leadership
+        file: content/pastors.json
+        fields:
+          - { label: Parish pastors' photo, name: photo, widget: image,
+              hint: "Used on the Home and About Us pages. A portrait photo works best." }
+          - { label: Title, name: title_prefix, widget: string, hint: "e.g. Pst" }
+          - { label: First names, name: first_names, widget: string, hint: "e.g. Lilian & Benson" }
+          - { label: Surname, name: surname, widget: string, hint: "e.g. Akwue" }
+          - { label: Role (short), name: role, widget: string, hint: "e.g. Parish Pastors" }
+          - { label: Role (long), name: role_long, widget: string, hint: "e.g. Parish Pastors, RPC Calgary" }
+          - { label: Message from the Pastor, name: message, widget: text,
+              hint: "Shown on the About Us page. Leave an empty line between paragraphs." }
+          - label: Our Leadership
+            name: leadership
+            widget: list
+            summary: "{{name}} – {{role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false,
+                  hint: "Leave empty to show “Photo coming soon”." }
+
+      - name: history
+        label: Church history timeline
+        file: content/history.json
+        fields:
+          - label: Milestones
+            name: milestones
+            widget: list
+            summary: "{{date}} – {{title}}"
+            fields:
+              - { label: Date, name: date, widget: string, hint: "Any wording, e.g. “September 29, 2024” or “2021”" }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: desc, widget: text }
+
+      - name: galleries
+        label: Photo galleries
+        file: content/galleries.json
+        media_folder: /public/images/gallery
+        public_folder: /images/gallery
+        fields:
+          - label: Church Anniversary (About Us page)
+            name: church_anniversary
+            widget: object
+            collapsed: true
+            fields: &gallery
+              - { label: Heading, name: title, widget: string }
+              - { label: Sub-heading, name: subtitle, widget: string }
+              - { label: Photos, name: photos, widget: list, field: { label: Photo, name: photo, widget: image } }
+          - { label: Life at RPC (About Us page), name: life_at_rpc, widget: object, collapsed: true, fields: *gallery }
+          - { label: Marriage Seminar (Programs page), name: marriage_seminar, widget: object, collapsed: true, fields: *gallery }
+          - { label: Church Picnic (Programs page), name: church_picnic, widget: object, collapsed: true, fields: *gallery }

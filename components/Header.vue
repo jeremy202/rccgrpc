@@ -9,7 +9,7 @@
         : 'bg-white text-[#141415] border-gray-200',
     ]"
   >
-    <nav class="flex items-center justify-between h-20 px-[20px] md:px-[180px]">
+    <nav class="flex items-center justify-between h-20 px-[20px] md:px-[32px] xl:px-[180px]">
       <div class="flex items-center space-x-3">
         <NuxtLink to="/">
           <img
@@ -91,17 +91,19 @@ onUnmounted(() => {
 
 const links = [
   { label: "Home", to: "/" },
-  { label: "Church", to: "/church" },
+  { label: "About Us", to: "/church" },
   { label: "Ministries", to: "/ministries" },
+  { label: "Events", to: "/events" },
   { label: "Programs", to: "/programs" },
   { label: "Give", to: "/give" },
 ];
 
-const isActive = (path: string) => route.path === path;
+const isActive = (path: string) =>
+  path === "/" ? route.path === "/" : route.path === path || route.path.startsWith(path + "/");
 
 const linkClasses = (link: { label: string; to: string }) => {
   const base =
-    "relative flex items-center px-[28px] border-l transition-all duration-150 h-full text-[15px]";
+    "relative flex items-center px-[16px] lg:px-[28px] border-l transition-all duration-150 h-full text-[15px]";
   const border = isHomePage.value ? "border-white/15" : "border-gray-200";
   const hover = isHomePage.value ? "hover:bg-white/10" : "hover:bg-gray-50";
   const active = isActive(link.to) ? "indivisible-semibold" : "";
