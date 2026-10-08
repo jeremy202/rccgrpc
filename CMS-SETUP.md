@@ -21,60 +21,23 @@ The content lives in `/content/*.json` and `/content/events/*.json`. Uploaded im
 
 ---
 
-## One-time setup (about 20 minutes)
+## How it's set up (done)
 
-### 1. Put the site on GitHub
-1. Create a repo on GitHub (it can be private), e.g. `rccgrpc/website`.
-2. Move the workflow into place. This is needed because the file was created outside the `.github` folder:
-   ```bash
-   (already done)
-   ```
-3. In `public/admin/config.yml`, set `repo:` to your repo, e.g. `repo: rccgrpc/website`.
-4. Push. You can keep the chigisoft remote as well:
-   ```bash
-   git remote add github https://github.com/rccgrpc/website.git
-   git add -A && git commit -m "Add website editor" && git push github main
-   ```
-   From now on, **GitHub is the source of truth**, because editors commit there. Run `git pull github main` before you make code changes.
-
-### 2. Create the GitHub login app
-GitHub → **Settings → Developer settings → OAuth Apps → New OAuth App**
-- Application name: `RPC Website Editor`
-- Homepage URL: `https://rccgrpc.ca`
-- Authorization callback URL: `https://rccgrpc.ca/admin/auth.php`
-
-Click **Register**, copy the **Client ID**, then click **Generate a new client secret** and copy that too.
-
-### 3. Store the secret on cPanel (not in the code)
-In cPanel **File Manager**, go to your home folder, which is the folder that *contains* `public_html` (not inside it). Create a file named `decap-oauth-config.php` there:
-```php
-<?php
-return [
-  'client_id'     => 'PASTE_CLIENT_ID',
-  'client_secret' => 'PASTE_CLIENT_SECRET',
-];
-```
-
-### 4. Give GitHub access to cPanel FTP
-1. In cPanel, go to **FTP Accounts** and create an account (e.g. `deploy@rccgrpc.ca`) whose directory is `public_html`.
-2. In GitHub, go to the repo → **Settings → Secrets and variables → Actions → New repository secret** and add:
-
-| Secret | Value |
+| Piece | Where |
 |---|---|
-| `FTP_SERVER` | `ftp.rccgrpc.ca` (or the server name shown in cPanel) |
-| `FTP_USERNAME` | `deploy@rccgrpc.ca` |
-| `FTP_PASSWORD` | the FTP account password |
-| `FTP_SERVER_DIR` | `./` (the FTP account already opens in public_html). Leave this out if you use the main cPanel login; it then defaults to `public_html/` |
-| `FTP_PROTOCOL` | optional, leave out for `ftps`; set `ftp` only if FTPS fails |
+| Code + content | GitHub: `jeremy202/rccgrpc` (branch `main`). This is now the source of truth. Run `git pull` before making code changes, because editors commit here too. |
+| Auto-deploy | `.github/workflows/deploy.yml`, which uploads to cPanel over FTPS as `deploy@rccgrpc.ca` into `/home/rccgrpcc/public_html` |
+| Deploy secrets | GitHub → repo → Settings → Secrets → Actions: `FTP_SERVER`, `FTP_SERVER_DIR`, `FTP_USERNAME`, `FTP_PASSWORD` |
+| Editor login app | GitHub OAuth App “RPC Website Editor”: https://github.com/settings/applications/3912919 (callback `https://rccgrpc.ca/admin/auth.php`) |
+| Login keys | cPanel: `/home/rccgrpcc/decap-oauth-config.php` (outside public_html; open via File Manager → Home) |
 
-3. Go to the repo's **Actions** tab and confirm “Build & deploy to cPanel” goes green. The first run uploads every image, so it takes a few minutes. Later runs only upload changed files.
-
-### 5. Add the editors
+### Adding an editor
 1. Each editor needs a free GitHub account.
-2. Add them in GitHub → repo → **Settings → Collaborators** with **Write** access.
+2. Add them in GitHub → `jeremy202/rccgrpc` → **Settings → Collaborators** with **Write** access.
 3. They then go to **rccgrpc.ca/admin → Login with GitHub**.
 
----
+### If a deploy fails
+Open the repo's **Actions** tab. A red ✗ is usually a wrong FTP secret. Fix it, then click **Re-run jobs**.
 
 ## Tips for editors
 - **Paragraphs:** leave an empty line between paragraphs in long text boxes.
